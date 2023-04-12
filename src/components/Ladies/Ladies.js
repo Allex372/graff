@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import img from '../../images/models/girl.jpg';
+import img from '../../images/models/girl.webp';
 import * as styles from './ladies.module.css';
 
 const Ladies = () => {
