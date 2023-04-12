@@ -1,0 +1,139 @@
+.wrapper {
+    width: 100%;
+    margin-top: 32px;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 46px;
+}
+
+.flexWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.cardWrapper {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.card:hover .content {
+    transform: translateY(-30px);
+}
+
+.card .content .imgBx {
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+    border: 1px solid #FDB931;
+    width: 200px;
+    overflow: hidden;
+}
+
+.card .content .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .content .contentBx h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+}
+
+.card .content .contentBx h3 span {
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: initial;
+}
+
+.card .sci {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+}
+
+.card .sci li {
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(40px);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.card:hover .sci li {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.card .sci li a {
+    color: #fff;
+    font-size: 20px;
+}
+
+.ladyText {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    line-height: 26px;
+    width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        height: 350px;
+    }
+
+    .cardWrapper {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .card:hover .content {
+        transform: translateY(0);
+    }
+
+    .card .sci {
+        bottom: 35px;
+    }
+
+    .ladyText {
+        font-weight: bold;
+        color: black;
+    }
+}

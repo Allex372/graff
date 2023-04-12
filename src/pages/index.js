@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import BaseLayout from "../components/Base_layout/BaseLayout"
 import LogoScreen from '../components/logoScreen/LogoScreen.js';
 import About_us from "../components/About_us/About_us";
+import Ladies from "../components/Ladies/Ladies";
 import GradientLine from "../components/GradientLine/GradientLine";
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
@@ -20,6 +21,7 @@ const IndexPage = () => (
       <div className={styles.lineWrapper}>
         <GradientLine />
       </div>
+      <Ladies />
     </BaseLayout>
 
   </div>
