@@ -7,6 +7,7 @@ import AboutUs from "../components/AboutUs/AboutUs";
 import InterierGalery from "../components/InterierGalery/InterierGalery";
 import Ladies from "../components/Ladies/Ladies";
 import GradientLine from "../components/GradientLine/GradientLine";
+import Rules from "../components/Rules/Rules";
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
@@ -27,6 +28,10 @@ const IndexPage = () => (
         <GradientLine />
       </div>
       <InterierGalery />
+      <div className={styles.lineWrapper}>
+        <GradientLine />
+      </div>
+      <Rules />
     </BaseLayout>
 
   </div>
