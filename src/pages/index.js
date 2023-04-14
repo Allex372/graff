@@ -3,7 +3,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import BaseLayout from "../components/Base_layout/BaseLayout"
 import LogoScreen from '../components/logoScreen/LogoScreen.js';
-import About_us from "../components/About_us/About_us";
+import AboutUs from "../components/AboutUs/AboutUs";
 import InterierGalery from "../components/InterierGalery/InterierGalery";
 import Ladies from "../components/Ladies/Ladies";
 import GradientLine from "../components/GradientLine/GradientLine";
@@ -18,7 +18,7 @@ const IndexPage = () => (
     </Layout>
 
     <BaseLayout>
-      <About_us />
+      <AboutUs />
       <div className={styles.lineWrapper}>
         <GradientLine />
       </div>

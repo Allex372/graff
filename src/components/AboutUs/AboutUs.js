@@ -4,7 +4,7 @@ import img from '../../images/night.jpg'
 
 import * as styles from './About_us.module.css';
 
-const About_us = () => {
+const AboutUs = () => {
     return (
         <div className={styles.wrapper}>
             <p className={styles.title}>About us Block</p>
@@ -21,4 +21,4 @@ const About_us = () => {
     )
 }
 
-export default About_us;
+export default AboutUs;
