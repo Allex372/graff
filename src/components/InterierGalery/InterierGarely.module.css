@@ -1,0 +1,129 @@
+:root {
+    --ion-color-gold: #FDB931;
+}
+
+.wrapper {
+    width: 100%;
+    margin-top: 32px;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 46px;
+}
+
+.container {
+    width: 100%;
+    padding: 4rem 1rem;
+    margin: 0 auto;
+}
+
+.heading {
+    padding: 1rem 0;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.swiperContainer {
+    padding-bottom: 32px;
+    position: relative;
+}
+
+.swiperSlide {
+    width: 30rem;
+    height: 42rem;
+    position: relative;
+}
+
+.swiperSlide img {
+    width: 28rem;
+    height: 42rem;
+    border-radius: 2rem;
+    object-fit: cover;
+}
+
+@media (max-width: 500px) {
+    .swiperContainer {
+        height: 29rem;
+        padding-bottom: 0;
+    }
+
+    .swiperSlide {
+        width: 20rem;
+        height: 36rem;
+    }
+
+    .swiperSlide img {
+        width: 18rem;
+        height: 27rem;
+    }
+}
+
+
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+    display: none;
+}
+
+.sliderСontroler {
+    position: relative;
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliderСontroler .swiperButtonNext {
+    left: 58%;
+    transform: translateX(-58%);
+}
+
+.sliderСontroler .sliderArrow {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    left: 42%;
+    transform: translateX(-42%);
+    filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.swiperPagination {
+    position: relative;
+    width: 15rem;
+    bottom: 1rem;
+}
+
+@media (max-width: 990px) {
+    .sliderСontroler .swiperButtonNext {
+        left: 70%;
+        transform: translateX(-70%);
+    }
+}
+
+@media (max-width: 450px) {
+    .sliderСontroler .swiperButtonNext {
+        left: 80%;
+        transform: translateX(-80%);
+    }
+}
+
+@media (max-width: 990px) {
+    .sliderСontroler .swiper-button-prev {
+        left: 30%;
+        transform: translateX(-30%);
+    }
+}
+
+@media (max-width: 450px) {
+    .sliderСontroler .swiper-button-prev {
+        left: 20%;
+        transform: translateX(-20%);
+    }
+}
