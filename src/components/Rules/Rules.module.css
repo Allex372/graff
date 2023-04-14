@@ -16,7 +16,7 @@
 }
 
 .infoWrapper {
-    padding-top: 64px;
+    padding: 64px 24px 0 24px;
 }
 
 .text {
@@ -58,4 +58,10 @@
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+@media screen and (max-width: 768px) {
+    .infoWrapper {
+        padding: 64px 12px 0 12px;
+    }
 }
