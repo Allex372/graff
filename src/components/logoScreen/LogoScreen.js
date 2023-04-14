@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Header from "../Header/header";
 import GradientLine from "../GradientLine/GradientLine";
@@ -11,7 +11,6 @@ import * as styles from './logo.module.css';
 
 const LogoScreen = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [zIndex, setZindex] = useState(false);
 
     const handleOpenMobileMenu = () => {
         setIsOpen(!isOpen);

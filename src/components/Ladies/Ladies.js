@@ -13,7 +13,7 @@ const Ladies = () => {
                     <div className={styles.card}>
                         <div className={styles.content}>
                             <div className={styles.imgBx}>
-                                <img src={img} />
+                                <img src={img} alt='girl' />
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@ const Ladies = () => {
                     <div className={styles.card}>
                         <div className={styles.content}>
                             <div className={styles.imgBx}>
-                                <img src={img} />
+                                <img src={img} alt='girl' />
                             </div>
                         </div>
                         <ul className={styles.sci}>
@@ -52,7 +52,7 @@ const Ladies = () => {
                     <div className={styles.card}>
                         <div className={styles.content}>
                             <div className={styles.imgBx}>
-                                <img src={img} />
+                                <img src={img} alt='girl' />
                             </div>
                         </div>
                         <ul className={styles.sci}>
