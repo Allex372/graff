@@ -16,7 +16,8 @@
 
 .flexWrapper {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: 38px 27px 0 27px;
+    margin-top: 38px;
     gap: 24px;
 }
