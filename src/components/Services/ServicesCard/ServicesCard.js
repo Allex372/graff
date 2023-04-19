@@ -5,14 +5,18 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from './ServicesCard.module.css';
 
 const ServicesCard = ({ category, title, url, image }) => {
-    const img = getImage(image);
+    let img;
+    if (image) {
+        img = getImage(image);
+    }
+
     return (
         <div className={styles.cardWrapper}>
             <div className={styles.imageWrapper}>
                 <GatsbyImage
-                    image={img}
+                    image={img && img}
                     alt={title}
-                    loading="lazy"
+                    // loading="lazy"
                     className={styles.image}
                 />
             </div>
