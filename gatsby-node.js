@@ -13,8 +13,8 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `)
-  data.allMarkdownRemark.nodes.forEach(node => {
-    const { url, category } = node.frontmatter;
+  data?.allMarkdownRemark?.nodes?.forEach(node => {
+    const { url, category } = node?.frontmatter;
     actions.createPage({
       path: `/${category}/${url}`,
       component: path.resolve('./src/templates/single-service.js'),

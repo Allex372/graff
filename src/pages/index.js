@@ -14,7 +14,7 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => {
-  const { nodes: servicesArray } = data.allMarkdownRemark;
+  const { nodes: servicesArray } = data?.allMarkdownRemark;
   return (
     <div className={styles.mainWrapper}>
 
@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
         <div className={styles.lineWrapper}>
           <GradientLine />
         </div>
-        <Services services={servicesArray} />
+        <Services services={servicesArray.length && servicesArray} />
         <div className={styles.lineWrapper}>
           <GradientLine />
         </div>

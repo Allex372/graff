@@ -7,7 +7,7 @@ import * as styles from './ServicesCard.module.css';
 const ServicesCard = ({ key, category, title, url, image }) => {
     const img = getImage(image);
     return (
-        <div className={styles.cardWrapper} id={key}>
+        <div className={styles.cardWrapper} key={key}>
             <div className={styles.imageWrapper}>
                 <GatsbyImage className={styles.image} image={img} alt='service image' />
             </div>

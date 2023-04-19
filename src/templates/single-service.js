@@ -9,7 +9,7 @@ import * as styles from './single-service.module.css';
 
 const SingleService = ({ data }) => {
   // const { html } = data.markdownRemark;
-  const { title, image, text } = data.markdownRemark.frontmatter;
+  const { title, image, text } = data?.markdownRemark?.frontmatter;
   const img = getImage(image);
 
   return (
