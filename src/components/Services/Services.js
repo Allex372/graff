@@ -12,7 +12,14 @@ const Services = ({ services }) => {
                 {services?.map((service) => {
                     const { category, title, url, image, text } = service?.frontmatter;
                     return (
-                        <ServicesCard key={service.id} text={text} category={category} title={title} url={url} image={image} />
+                        <ServicesCard
+                            key={service.id}
+                            text={text}
+                            category={category}
+                            title={title}
+                            url={url}
+                            image={image}
+                        />
                     )
                 })}
             </div>

@@ -46,8 +46,6 @@ export const query = graphql`
           childImageSharp {
             gatsbyImageData(
               width: 350
-              placeholder: BLURRED
-              formats: AUTO
             )
           }
         }
@@ -55,3 +53,7 @@ export const query = graphql`
     }
   }
 `;
+
+
+//placeholder: BLURRED
+//formats: AUTO
