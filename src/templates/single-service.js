@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from 'gatsby';
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -47,7 +47,7 @@ export const query = graphql`
             gatsbyImageData(
               width: 350
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: AUTO
             )
           }
         }

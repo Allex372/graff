@@ -15,6 +15,7 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     {
