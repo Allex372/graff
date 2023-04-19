@@ -17,7 +17,11 @@ const SingleService = ({ data }) => {
       <Layout>
         <Seo title={title} />
         <div className={styles.infoWrapper}>
-          <GatsbyImage loading="eager" image={img} alt={title} className={styles.image} />
+          <GatsbyImage
+            image={img}
+            alt={title}
+            className={styles.image}
+          />
           <p className={styles.title}>{title}</p>
           <p className={styles.description}>{text}</p>
           {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}

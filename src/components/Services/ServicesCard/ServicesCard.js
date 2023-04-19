@@ -9,7 +9,11 @@ const ServicesCard = ({ key, category, title, url, image }) => {
     return (
         <div className={styles.cardWrapper} key={key}>
             <div className={styles.imageWrapper}>
-                <GatsbyImage loading="eager" className={styles.image} image={img} alt='service image' />
+                <GatsbyImage
+                    className={styles.image}
+                    image={img}
+                    alt={title}
+                />
             </div>
             <p className={styles.title}>{title}</p>
             <Link to={`/${category}/${url}`} className={styles.link}>Читати більше -&gt;</Link>
