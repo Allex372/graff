@@ -20,6 +20,7 @@ const SingleService = ({ data }) => {
           <GatsbyImage
             image={img}
             alt={title}
+            loading="lazy"
             className={styles.image}
           />
           <p className={styles.title}>{title}</p>
@@ -43,7 +44,7 @@ export const query = graphql`
         text
         image {
           childImageSharp {
-            gatsbyImageData(width: 350)
+            gatsbyImageData(width: 350, formats: AUTO)
           }
         }
       }

@@ -10,6 +10,7 @@ const ServicesCard = ({ category, title, url, image }) => {
         <div className={styles.cardWrapper}>
             <div className={styles.imageWrapper}>
                 <GatsbyImage
+                    loading="lazy"
                     className={styles.image}
                     image={img}
                     alt={title}
