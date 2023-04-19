@@ -14,14 +14,9 @@
     font-size: 46px;
 }
 
-.container {
-    width: 100%;
-    padding: 4rem 1rem;
-    margin: 0 auto;
-}
-
-.heading {
-    padding: 1rem 0;
-    font-size: 3.5rem;
-    text-align: center;
+.flexWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 64px;
+    gap: 16px;
 }

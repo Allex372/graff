@@ -1,9 +1,11 @@
 import * as React from "react"
+import { graphql } from 'gatsby';
 
 import Layout from "../components/layout"
 import BaseLayout from "../components/Base_layout/BaseLayout"
 import LogoScreen from '../components/logoScreen/LogoScreen.js';
 import AboutUs from "../components/AboutUs/AboutUs";
+import Services from "../components/Services/Services";
 import InterierGalery from "../components/InterierGalery/InterierGalery";
 import Ladies from "../components/Ladies/Ladies";
 import GradientLine from "../components/GradientLine/GradientLine";
@@ -11,32 +13,59 @@ import Rules from "../components/Rules/Rules";
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
-const IndexPage = () => (
-  <div className={styles.mainWrapper}>
+const IndexPage = ({ data }) => {
+  const { nodes: servicesArray } = data.allMarkdownRemark;
+  return (
+    <div className={styles.mainWrapper}>
 
-    <Layout>
-      <LogoScreen />
-    </Layout>
+      <Layout>
+        <LogoScreen />
+      </Layout>
 
-    <BaseLayout>
-      <AboutUs />
-      <div className={styles.lineWrapper}>
-        <GradientLine />
-      </div>
-      <Ladies />
-      <div className={styles.lineWrapper}>
-        <GradientLine />
-      </div>
-      <InterierGalery />
-      <div className={styles.lineWrapper}>
-        <GradientLine />
-      </div>
-      <Rules />
-    </BaseLayout>
+      <BaseLayout>
+        <AboutUs />
+        <div className={styles.lineWrapper}>
+          <GradientLine />
+        </div>
+        <Ladies />
+        <div className={styles.lineWrapper}>
+          <GradientLine />
+        </div>
+        <InterierGalery />
+        <div className={styles.lineWrapper}>
+          <GradientLine />
+        </div>
+        <Services services={servicesArray} />
+        <div className={styles.lineWrapper}>
+          <GradientLine />
+        </div>
+        <Rules />
+      </BaseLayout>
 
-  </div>
-)
+    </div>
+  )
+}
 
 export const Head = () => <Seo title="Graff" />
 
 export default IndexPage
+
+export const query = graphql`
+  query AllServices{
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          category
+          title
+          url
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        id
+      }
+    }
+  }
+`
