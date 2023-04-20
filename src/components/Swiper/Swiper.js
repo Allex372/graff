@@ -22,6 +22,7 @@ const inlineStyles = {
 const SwiperCarousel = ({ array, isService }) => {
     const ServiceSwiperComponent = () => {
         const { changeSlide } = useSliderIndex();
+        if (typeof window === "undefined") return null;
         const currentSlide = localStorage.getItem('currentSlide');
         return (
             <Swiper
