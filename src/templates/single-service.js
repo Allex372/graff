@@ -4,25 +4,33 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import img from '../images/models/girl.jpg'
 
 import * as styles from './single-service.module.css';
 
 const SingleService = ({ data }) => {
   // const { html } = data.markdownRemark;
   const { title, image, text } = data?.markdownRemark?.frontmatter;
-  const img = getImage(image);
+  // const img = getImage(image);
 
   return (
     <div className={styles.bg}>
       <Layout>
         <Seo title={title} />
         <div className={styles.infoWrapper}>
-          <GatsbyImage
+          {/* <GatsbyImage
             image={img}
             alt={title}
             loading="lazy"
             className={styles.image}
-          />
+          /> */}
+          <div className={styles.imageWrapper}>
+            <img
+              src={img}
+              alt={title}
+              className={styles.image}
+            />
+          </div>
           <p className={styles.title}>{title}</p>
           <p className={styles.description}>{text}</p>
           {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}

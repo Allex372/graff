@@ -1,22 +1,29 @@
 import * as React from "react";
 import { Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+// import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import img from '../../../images/night.jpg'
 
 import * as styles from './ServicesCard.module.css';
 
 const ServicesCard = ({ category, title, url, image }) => {
-    let img;
-    if (image) {
-        img = getImage(image);
-    }
+
+    // const img = getImage(image);
+
+    // console.log(image);
+    //childImageSharp.gatsbyImageData.images.fallback.src
 
     return (
         <div className={styles.cardWrapper}>
             <div className={styles.imageWrapper}>
-                <GatsbyImage
-                    image={img && img}
+                {/* <GatsbyImage
+                    image={img}
                     alt={title}
                     // loading="lazy"
+                    className={styles.image}
+                /> */}
+                <img
+                    src={img}
+                    alt={title}
                     className={styles.image}
                 />
             </div>
