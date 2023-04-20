@@ -14,10 +14,8 @@
     font-size: 46px;
 }
 
-.flexWrapper {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 38px;
-    gap: 24px;
+.container {
+    width: 100%;
+    padding: 4rem 1rem;
+    margin: 0 auto;
 }

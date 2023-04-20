@@ -36,13 +36,7 @@ const Ladies = () => {
 
                             <ul className={styles.sci}>
                                 <li>
-                                    <p className={styles.ladyText}>Params</p>
-                                </li>
-                                <li>
-                                    <p className={styles.ladyText}>Params</p>
-                                </li>
-                                <li>
-                                    <p className={styles.ladyText}>Params</p>
+                                    <p className={styles.ladyText}>{el.name}</p>
                                 </li>
                             </ul>
                         </div>

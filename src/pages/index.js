@@ -10,7 +10,9 @@ import InterierGalery from "../components/InterierGalery/InterierGalery";
 import Ladies from "../components/Ladies/Ladies";
 import GradientLine from "../components/GradientLine/GradientLine";
 import Rules from "../components/Rules/Rules";
-import Seo from "../components/seo"
+import Seo from "../components/seo";
+import SliderContextProvide from "../context/sliderConext";
+
 import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => {
@@ -22,25 +24,27 @@ const IndexPage = ({ data }) => {
         <LogoScreen />
       </Layout>
 
-      <BaseLayout>
-        <AboutUs />
-        <div className={styles.lineWrapper}>
-          <GradientLine />
-        </div>
-        <Ladies />
-        <div className={styles.lineWrapper}>
-          <GradientLine />
-        </div>
-        <InterierGalery />
-        <div className={styles.lineWrapper}>
-          <GradientLine />
-        </div>
-        <Services services={servicesArray.length && servicesArray} />
-        <div className={styles.lineWrapper}>
-          <GradientLine />
-        </div>
-        <Rules />
-      </BaseLayout>
+      <SliderContextProvide>
+        <BaseLayout>
+          <AboutUs />
+          <div className={styles.lineWrapper}>
+            <GradientLine />
+          </div>
+          <Ladies />
+          <div className={styles.lineWrapper}>
+            <GradientLine />
+          </div>
+          <Services services={servicesArray.length && servicesArray} />
+          <div className={styles.lineWrapper}>
+            <GradientLine />
+          </div>
+          <InterierGalery />
+          <div className={styles.lineWrapper}>
+            <GradientLine />
+          </div>
+          <Rules />
+        </BaseLayout>
+      </SliderContextProvide>
 
     </div>
   )

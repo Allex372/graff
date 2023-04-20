@@ -1,10 +1,10 @@
 import * as React from "react"
 import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+// import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import img from '../images/models/girl.jpg'
+import img from '../images/models/girl.webp'
 
 import * as styles from './single-service.module.css';
 

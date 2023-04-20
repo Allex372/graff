@@ -20,7 +20,7 @@ const ModelsDialog = ({ isOpenDialog, handleClose, imagesArray }) => {
                 },
             }}>
             <div className={styles.container}>
-                <SwiperCarousel imagesArray={imagesArray} />
+                <SwiperCarousel array={imagesArray} />
             </div>
         </Dialog>
     )
