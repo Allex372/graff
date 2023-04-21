@@ -12,10 +12,10 @@ import * as styles from './logo.module.css';
 const LogoScreen = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const body = document.getElementsByTagName('body');
-
     useEffect(() => {
-        isOpen ? body[0].style.overflow = 'hidden' : body[0].style.overflow = 'auto';
+        const body = window.document.getElementsByTagName('body');
+
+        (isOpen && body) ? body[0].style.overflow = 'hidden' : body[0].style.overflow = 'auto';
     }, [isOpen]);
 
     const handleOpenMobileMenu = () => {
