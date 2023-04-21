@@ -60,8 +60,8 @@ const Ladies = () => {
                     className="mySwiper"
                 >
                     {AllModelsArray.map((el) => (
-                        <SwiperSlide>
-                            <div className={styles.card} key={el.id}>
+                        <SwiperSlide key={el.id}>
+                            <div className={styles.card}>
                                 <div className={styles.content}>
                                     <div className={styles.imgBx}>
                                         <img src={el.image} alt='girl' onClick={() => handleOpenDialog(el.allImages)} />
