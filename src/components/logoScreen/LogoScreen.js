@@ -65,7 +65,7 @@ const LogoScreen = () => {
             </div>
 
             {isOpen &&
-                <div className={styles.mobileMenu}>
+                <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}>
                     <div className={styles.mobileHeaderWrapper}>
                         <Header />
                         <div className={styles.contactsMobileWrapper}>
