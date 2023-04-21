@@ -49,7 +49,7 @@ const SwiperCarousel = ({ array, isService }) => {
             >
                 {
                     (isService && array && array[0].frontmatter) && array.map(el => {
-                        const { category, title, url, image, text } = el?.frontmatter;
+                        const { category, title, url } = el?.frontmatter;
                         return (
                             <SwiperSlide className={styles.swiperSlide} key={el.id}>
                                 <div className={styles.cardWrapper}>

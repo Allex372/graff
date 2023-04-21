@@ -114,22 +114,36 @@
     width: 40%;
 }
 
+.mobileSlides {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
-    .card {
-        height: 350px;
+    .mobileSlides {
+        display: block;
+        width: 100%;
     }
 
-    .cardWrapper {
-        flex-direction: column;
-        justify-content: space-around;
-    }
-
-    .card:hover .content {
-        transform: translateY(0);
+    .flexWrapper {
+        display: none;
     }
 
     .card .sci {
-        bottom: 35px;
+        position: absolute;
+        bottom: 50px;
+        display: flex;
+    }
+
+    .card .sci li {
+        list-style: none;
+        margin: 0 10px;
+        transform: none;
+        transition: none;
+        opacity: 1;
+    }
+
+    .card:hover .sci li {
+        transform: none;
     }
 
     .ladyText {
