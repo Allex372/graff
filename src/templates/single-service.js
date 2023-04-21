@@ -10,8 +10,8 @@ import * as styles from './single-service.module.css';
 
 const SingleService = ({ data }) => {
   // const { html } = data.markdownRemark;
-  const { title, image, text } = data?.markdownRemark?.frontmatter;
-  // const img = getImage(image);
+  const { title, text } = data?.markdownRemark?.frontmatter;
+  // const img = getImage(image); image in data?.markdownRemark?.frontmatter
 
   return (
     <div className={styles.bg}>
