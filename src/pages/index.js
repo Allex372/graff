@@ -12,6 +12,8 @@ import GradientLine from "../components/GradientLine/GradientLine";
 import Rules from "../components/Rules/Rules";
 import Seo from "../components/seo";
 import SliderContextProvide from "../context/sliderConext";
+import SideMenuContextProvide from "../context/sideMenuContext";
+import Scroll from "../components/ScrollToTop/ScrollToTop";
 
 import * as styles from "../components/index.module.css"
 
@@ -21,7 +23,10 @@ const IndexPage = ({ data }) => {
     <div className={styles.mainWrapper}>
 
       <Layout>
-        <LogoScreen />
+        <SideMenuContextProvide>
+          <LogoScreen />
+        </SideMenuContextProvide>
+
       </Layout>
 
       <SliderContextProvide>
@@ -46,6 +51,7 @@ const IndexPage = ({ data }) => {
         </BaseLayout>
       </SliderContextProvide>
 
+      <Scroll showBelow={250} />
     </div>
   )
 }

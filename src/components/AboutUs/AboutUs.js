@@ -6,7 +6,7 @@ import * as styles from './About_us.module.css';
 
 const AboutUs = () => {
     return (
-        <div className={styles.wrapper}>
+        <div id="about" className={styles.wrapper}>
             <p className={styles.title}>About us Block</p>
             <div className={styles.infoWrapper}>
                 <div className={styles.infoImgWrapper}>

@@ -31,7 +31,7 @@ const Ladies = () => {
     }
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} id="ladies">
             <p className={styles.title}>Our Ladies</p>
             <div className={styles.flexWrapper}>
                 <div className={styles.cardWrapper}>

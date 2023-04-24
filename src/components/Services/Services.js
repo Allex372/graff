@@ -6,7 +6,7 @@ import * as styles from './Services.module.css';
 
 const Services = ({ services }) => {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} id="services">
             <p className={styles.title}>Services</p>
 
             <div className={styles.container}>

@@ -5,7 +5,7 @@
 
 .swiperSlide {
     width: 30rem;
-    height: 42rem;
+    /* height: 42rem; */
     position: relative;
 }
 
@@ -14,6 +14,7 @@
     height: 42rem;
     border-radius: 2rem;
     object-fit: cover;
+    user-select: none;
 }
 
 @media (max-width: 500px) {
@@ -109,13 +110,14 @@
 }
 
 .imageWrapper {
-    height: auto;
+    height: 450px;
     width: 300px;
 }
 
 .imageWrapper img {
     width: 100%;
     height: 100%;
+    user-select: none;
 }
 
 .title {
@@ -143,6 +145,7 @@
 @media screen and (max-width: 768px) {
     .imageWrapper {
         width: 214px;
+        height: 300px;
     }
 
     .title {

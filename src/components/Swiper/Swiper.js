@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from 'gatsby';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import { useSliderIndex } from "../../context/sliderConext";
 
@@ -49,14 +50,21 @@ const SwiperCarousel = ({ array, isService }) => {
             >
                 {
                     (isService && array && array[0].frontmatter) && array.map(el => {
-                        const { category, title, url } = el?.frontmatter;
+                        const { category, title, url, image } = el?.frontmatter;
+                        const img = getImage(image);
                         return (
                             <SwiperSlide className={styles.swiperSlide} key={el.id}>
                                 <div className={styles.cardWrapper}>
                                     <div className={styles.imageWrapper}>
-                                        <img
+                                        {/* <img
                                             src={img}
                                             alt={title}
+                                            className={styles.image}
+                                        /> */}
+                                        <GatsbyImage
+                                            image={img}
+                                            alt={title}
+                                            loading="lazy"
                                             className={styles.image}
                                         />
                                     </div>
@@ -64,8 +72,6 @@ const SwiperCarousel = ({ array, isService }) => {
                                     <Link to={`/${category}/${url}`} className={styles.link}>Читати більше -&gt;</Link>
                                 </div>
                             </SwiperSlide>
-
-
                         )
                     })
                 }
