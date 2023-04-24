@@ -64,6 +64,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    user-select: none;
 }
 
 .card .content .contentBx h3 {
@@ -143,6 +144,10 @@
     }
 
     .card:hover .sci li {
+        transform: none;
+    }
+
+    .card:hover .content {
         transform: none;
     }
 
