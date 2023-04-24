@@ -15,7 +15,7 @@ import { AllModelsArray } from "../../consts/allModelsArray";
 import * as styles from './ladies.module.css';
 
 const Ladies = () => {
-    console.log('node versio');
+    console.log('node versioт');
     const [openDialog, setOpenDialog] = useState(false);
     const [arr, setArr] = useState([]);
 
