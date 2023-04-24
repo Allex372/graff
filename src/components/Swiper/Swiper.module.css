@@ -110,7 +110,7 @@
 }
 
 .imageWrapper {
-    height: auto;
+    height: 450px;
     width: 300px;
 }
 
@@ -145,6 +145,7 @@
 @media screen and (max-width: 768px) {
     .imageWrapper {
         width: 214px;
+        height: 300px;
     }
 
     .title {
