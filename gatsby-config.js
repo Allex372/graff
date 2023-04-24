@@ -16,6 +16,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-anchor-links`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     {
@@ -31,6 +32,12 @@ module.exports = {
         name: `services`,
         path: `${__dirname}/src/services`,
       },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

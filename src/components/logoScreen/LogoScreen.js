@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-import Header from "../Header/header";
+import { useSideMenuOpen } from "../../context/sideMenuContext";
+import NavigationItems from "../NavigationItems/NavigationItems";
 import GradientLine from "../GradientLine/GradientLine";
 import logo from '../../images/logo.png';
 import menuIcon from '../../images/menu-icon.png';
@@ -11,6 +12,11 @@ import * as styles from './logo.module.css';
 
 const LogoScreen = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { isMenuClose, setIsMenuClose } = useSideMenuOpen();
+
+    useEffect(() => {
+        setIsOpen(false);
+    }, [isMenuClose]);
 
     useEffect(() => {
         const body = window.document.getElementsByTagName('body');
@@ -19,6 +25,7 @@ const LogoScreen = () => {
     }, [isOpen]);
 
     const handleOpenMobileMenu = () => {
+        setIsMenuClose(false);
         setIsOpen(!isOpen);
     }
 
@@ -64,14 +71,14 @@ const LogoScreen = () => {
 
             <GradientLine />
             <div className={styles.headerWrapper}>
-                <Header />
+                <NavigationItems />
             </div>
 
             {
-                isOpen &&
+                (isOpen && !isMenuClose) &&
                 <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ""}`}>
                     <div className={styles.mobileHeaderWrapper}>
-                        <Header />
+                        <NavigationItems />
                         <div className={styles.contactsMobileWrapper}>
                             <div className={styles.contactsInfo}>
                                 <a href="tel:+1234567890">

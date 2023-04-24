@@ -4,7 +4,7 @@ import * as styles from './Rules.module.css';
 
 const Rules = () => {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} id='rules'>
             <p className={styles.title}>Rules</p>
 
             <div className={styles.infoWrapper}>

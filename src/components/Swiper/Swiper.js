@@ -51,7 +51,6 @@ const SwiperCarousel = ({ array, isService }) => {
                 {
                     (isService && array && array[0].frontmatter) && array.map(el => {
                         const { category, title, url, image } = el?.frontmatter;
-                        console.log(el?.frontmatter);
                         const img = getImage(image);
                         return (
                             <SwiperSlide className={styles.swiperSlide} key={el.id}>

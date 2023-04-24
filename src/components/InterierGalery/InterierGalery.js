@@ -12,7 +12,7 @@ import * as styles from './InterierGarely.module.css';
 
 const InterierGalery = () => {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} id="galery">
             <p className={styles.title}>Galery Block</p>
             <div className={styles.container}>
                 <SwiperCarousel />

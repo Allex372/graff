@@ -1,22 +1,20 @@
 import * as React from "react"
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-// import img from '../images/models/girl.webp'
+import arrowLeft from '../images/arrow-left.png';
 
 import * as styles from './single-service.module.css';
 
 const SingleService = ({ data }) => {
   const { title, text, image } = data?.markdownRemark?.frontmatter;
-  console.log(data?.markdownRemark?.frontmatter);
   const img = getImage(image);
 
   return (
     <div className={styles.bg}>
-      {/* <Layout> */}
-      {/* <Seo title={title} /> */}
+      <div className={styles.menuIcon} onClick={() => navigate(-1)}>
+        <img src={arrowLeft} alt="back" />
+      </div>
       <div className={styles.infoWrapper}>
         <GatsbyImage
           image={img}
@@ -34,7 +32,6 @@ const SingleService = ({ data }) => {
         <p className={styles.title}>{title}</p>
         <p className={styles.description}>{text}</p>
       </div>
-      {/* </Layout> */}
     </div>
   )
 }

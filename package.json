@@ -10,6 +10,7 @@
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@mui/material": "^5.12.0",
     "gatsby": "^5.8.1",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-image": "^3.8.0",
     "gatsby-plugin-manifest": "^5.8.0",
     "gatsby-plugin-netlify": "^5.1.0",

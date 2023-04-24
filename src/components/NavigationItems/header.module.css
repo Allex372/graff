@@ -5,6 +5,10 @@
     /* width: 75% */
 }
 
+.links {
+    text-decoration: none;
+}
+
 .listWrapper {
     display: flex;
     align-items: center;
