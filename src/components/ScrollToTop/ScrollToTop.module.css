@@ -1,4 +1,5 @@
 .menuIcon {
+    cursor: pointer;
     bottom: 40px;
     position: fixed;
     right: 15px;
