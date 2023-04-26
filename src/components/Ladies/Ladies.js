@@ -10,11 +10,13 @@ import "swiper/css/effect-cards";
 // import required modules
 import { EffectCards } from "swiper";
 
+import { useLanguage } from '../../context/languageContext';
 import ModelsDialog from "../ModelsDialog/ModelsDialog";
 import { AllModelsArray } from "../../consts/allModelsArray";
 import * as styles from './ladies.module.css';
 
 const Ladies = () => {
+    const { t } = useLanguage();
     const [openDialog, setOpenDialog] = useState(false);
     const [arr, setArr] = useState([]);
 
@@ -32,7 +34,7 @@ const Ladies = () => {
 
     return (
         <div className={styles.wrapper} id="ladies">
-            <p className={styles.title}>Our Ladies</p>
+            <p className={styles.title}>{t('ladies')}</p>
             <div className={styles.flexWrapper}>
                 <div className={styles.cardWrapper}>
                     {AllModelsArray.map((el) => (
@@ -45,7 +47,7 @@ const Ladies = () => {
 
                             <ul className={styles.sci}>
                                 <li>
-                                    <p className={styles.ladyText}>{el.name}</p>
+                                    <p className={styles.ladyText}>{t(el.name)}</p>
                                 </li>
                             </ul>
                         </div>

@@ -2,11 +2,14 @@ import * as React from "react"
 import { graphql, navigate } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
+import { useLanguage } from "../context/languageContext";
+import LanguageProvider from '../context/languageContext';
 import arrowLeft from '../images/arrow-left.png';
 
 import * as styles from './single-service.module.css';
 
 const SingleService = ({ data }) => {
+  const { t } = useLanguage();
   const { title, text, image } = data?.markdownRemark?.frontmatter;
   const img = getImage(image);
 
@@ -29,14 +32,20 @@ const SingleService = ({ data }) => {
               className={styles.image}
             /> */}
         </div>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.description}>{text}</p>
+        <p className={styles.title}>{t(title)}</p>
+        <p className={styles.description}>{t(text)}</p>
       </div>
     </div>
   )
 }
 
-export default SingleService;
+const SingleServiceWithContext = (props) => (
+  <LanguageProvider>
+    <SingleService {...props} />
+  </LanguageProvider>
+);
+
+export default SingleServiceWithContext;
 
 export const query = graphql`
   query ServiceQuery($url: String) {

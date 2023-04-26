@@ -39,6 +39,7 @@
 .logoWrapper img {
     width: 100%;
     height: 100%;
+    user-select: none;
 }
 
 .menuIcon {
@@ -81,7 +82,7 @@
     justify-content: space-around;
 }
 
-.languages {
+.mobilelanguages {
     display: flex;
     align-items: center;
     color: aliceblue;
@@ -111,12 +112,36 @@
     padding-right: 8px;
 }
 
+.languages {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: antiquewhite;
+}
+
+.languages span {
+    user-select: none;
+    cursor: pointer;
+}
+
+.languages span:not(:first-child),
+.mobilelanguages span:not(:first-child) {
+    margin-left: 4px;
+}
+
+.active {
+    color: #FDB931;
+}
+
 @media screen and (max-width: 768px) {
     .contactsInfo {
         display: flex;
         flex-direction: column;
     }
 
+    .languages {
+        display: none;
+    }
 
     .contactsInfo a:not(:first-child) {
         padding-top: 8px;
