@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 
 import { useSideMenuOpen } from "../../context/sideMenuContext";
+import { useLanguage } from '../../context/languageContext';
 import NavigationItems from "../NavigationItems/NavigationItems";
 import GradientLine from "../GradientLine/GradientLine";
 import logo from '../../images/logo.png';
@@ -11,6 +12,8 @@ import closeIcon from '../../images/close-icon.png';
 import * as styles from './logo.module.css';
 
 const LogoScreen = () => {
+    const { language, setEN, setUA } = useLanguage();
+
     const [isOpen, setIsOpen] = useState(false);
     const { isMenuClose, setIsMenuClose } = useSideMenuOpen();
 
@@ -31,6 +34,21 @@ const LogoScreen = () => {
 
     return (
         <div className={styles.wrapper}>
+            <div className={styles.languages}>
+                <span
+                    className={language === 'ua' && `${styles.active}`}
+                    onClick={() => setEN('ua')}
+                >
+                    UA
+                </span>
+                <span>/</span>
+                <span
+                    className={language === 'en' && `${styles.active}`}
+                    onClick={() => setEN('en')}
+                >
+                    EN
+                </span>
+            </div>
             <div className={styles.iconContentWrapper}>
                 <div className={styles.imageWrapper}>
                     {
@@ -45,9 +63,9 @@ const LogoScreen = () => {
                 </div>
                 <div className={styles.contactWrapper}>
                     <div className={styles.contactsInfo}>
-                        <a href="tel:+1234567890" target='_blank' rel="noreferrer">
+                        <a href="tel:+380986374614" target='_blank' rel="noreferrer">
                             <i class="fas fa-phone fa-lg"></i>
-                            +1 (234) 567-890
+                            +380986374614
                         </a>
 
                         <a href="tg://resolve?domain=telegram_username" target='_blank' rel="noreferrer">
@@ -102,7 +120,21 @@ const LogoScreen = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className={styles.languages}>EN/UA</div>
+                        <div className={styles.mobilelanguages}>
+                            <span
+                                className={language === 'ua' && `${styles.active}`}
+                                onClick={() => setEN('ua')}
+                            >
+                                UA
+                            </span>
+                            <span>/</span>
+                            <span
+                                className={language === 'en' && `${styles.active}`}
+                                onClick={() => setEN('en')}
+                            >
+                                EN
+                            </span>
+                        </div>
                     </div>
                 </div>
             }

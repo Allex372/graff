@@ -15,7 +15,7 @@ export const AllModelsArray = [
     {
         id: 1,
         image: Kira,
-        name: 'Кіра',
+        name: 'Кіrа',
         allImages: [Kira, Kira1, Kira2, Kira3, Kira4]
     },
     {
@@ -27,6 +27,6 @@ export const AllModelsArray = [
     {
         id: 3,
         image: Girl,
-        name: 'Any'
+        name: 'Ann'
     }
 ]

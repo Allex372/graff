@@ -1,12 +1,14 @@
 import * as React from "react"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
+import { useLanguage } from '../../context/languageContext';
 import { useSideMenuOpen } from "../../context/sideMenuContext";
 
 
 import * as styles from './header.module.css';
 
 const NavigationItems = () => {
+  const { t } = useLanguage();
   const { setIsMenuClose } = useSideMenuOpen();
 
   const handleLinkClicked = () => {
@@ -18,31 +20,31 @@ const NavigationItems = () => {
 
         <div onClick={() => handleLinkClicked()}>
           <AnchorLink className={styles.links} to="#about">
-            <li>About us</li>
+            <li>{t('aboutUs')}</li>
           </AnchorLink>
         </div>
 
         <div onClick={() => handleLinkClicked()}>
           <AnchorLink className={styles.links} to="#ladies">
-            <li>Our Ladies</li>
+            <li>{t('ladies')}</li>
           </AnchorLink>
         </div>
 
         <div onClick={() => handleLinkClicked()}>
           <AnchorLink className={styles.links} to="#services">
-            <li>Services</li>
+            <li>{t('services')}</li>
           </AnchorLink>
         </div>
 
         <div onClick={() => handleLinkClicked()}>
           <AnchorLink className={styles.links} to="#galery">
-            <li>Interier Galery</li>
+            <li>{t('interior')}</li>
           </AnchorLink>
         </div>
 
         <div onClick={() => handleLinkClicked()}>
           <AnchorLink className={styles.links} to="#rules">
-            <li>Rules</li>
+            <li>{t('rules')}</li>
           </AnchorLink>
         </div>
 

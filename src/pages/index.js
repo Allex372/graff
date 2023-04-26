@@ -1,5 +1,8 @@
 import * as React from "react"
 import { graphql } from 'gatsby';
+import '../../18n';
+
+import LanguageProvider from '../context/languageContext';
 
 import Layout from "../components/layout"
 import BaseLayout from "../components/Base_layout/BaseLayout"
@@ -21,35 +24,39 @@ const IndexPage = ({ data }) => {
   const { nodes: servicesArray } = data?.allMarkdownRemark;
   return (
     <div className={styles.mainWrapper}>
+      <LanguageProvider>
 
-      <Layout>
-        <SideMenuContextProvide>
-          <LogoScreen />
-        </SideMenuContextProvide>
+        <Layout>
+          <SideMenuContextProvide>
+            <LogoScreen />
+          </SideMenuContextProvide>
 
-      </Layout>
+        </Layout>
 
-      <SliderContextProvide>
-        <BaseLayout>
-          <AboutUs />
-          <div className={styles.lineWrapper}>
-            <GradientLine />
-          </div>
-          <Ladies />
-          <div className={styles.lineWrapper}>
-            <GradientLine />
-          </div>
-          <Services services={servicesArray.length && servicesArray} />
-          <div className={styles.lineWrapper}>
-            <GradientLine />
-          </div>
-          <InterierGalery />
-          <div className={styles.lineWrapper}>
-            <GradientLine />
-          </div>
-          <Rules />
-        </BaseLayout>
-      </SliderContextProvide>
+        <SliderContextProvide>
+          <BaseLayout>
+            <AboutUs />
+            <div className={styles.lineWrapper}>
+              <GradientLine />
+            </div>
+            <Ladies />
+            <div className={styles.lineWrapper}>
+              <GradientLine />
+            </div>
+            <Services services={servicesArray.length && servicesArray} />
+            <div className={styles.lineWrapper}>
+              <GradientLine />
+            </div>
+            <InterierGalery />
+            <div className={styles.lineWrapper}>
+              <GradientLine />
+            </div>
+            <Rules />
+
+          </BaseLayout>
+        </SliderContextProvide>
+
+      </LanguageProvider>
 
       <Scroll showBelow={250} />
     </div>

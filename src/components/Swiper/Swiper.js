@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 import { useSliderIndex } from "../../context/sliderConext";
+import { useLanguage } from "../../context/languageContext";
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -21,6 +22,7 @@ const inlineStyles = {
 }
 
 const SwiperCarousel = ({ array, isService }) => {
+    const { t } = useLanguage();
     const ServiceSwiperComponent = () => {
         const { changeSlide } = useSliderIndex();
         if (typeof window === "undefined") return null;
@@ -68,8 +70,8 @@ const SwiperCarousel = ({ array, isService }) => {
                                             className={styles.image}
                                         />
                                     </div>
-                                    <p className={styles.title}>{title}</p>
-                                    <Link to={`/${category}/${url}`} className={styles.link}>Читати більше -&gt;</Link>
+                                    <p className={styles.title}>{t(title)}</p>
+                                    <Link to={`/${category}/${url}`} className={styles.link}>{t('readMore')} -&gt;</Link>
                                 </div>
                             </SwiperSlide>
                         )
@@ -177,8 +179,6 @@ const SwiperCarousel = ({ array, isService }) => {
             {(!isService && array) && <LadiesSwiperComponent array={array} />}
             {(!isService && !array) && <InterierSwiperComponent />}
             {(isService && array && array[0].frontmatter) && <ServiceSwiperComponent />}
-
-
         </>
     )
 }
