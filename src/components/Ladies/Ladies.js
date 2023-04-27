@@ -37,17 +37,17 @@ const Ladies = () => {
             <p className={styles.title}>{t('ladies')}</p>
             <div className={styles.flexWrapper}>
                 <div className={styles.cardWrapper}>
-                    {AllModelsArray.map((el) => (
-                        <div className={styles.card} key={el.id}>
+                    {AllModelsArray.map(({ id, image, allImages, name }) => (
+                        <div className={styles.card} key={id}>
                             <div className={styles.content}>
                                 <div className={styles.imgBx}>
-                                    <img src={el.image} alt='girl' onClick={() => handleOpenDialog(el.allImages)} />
+                                    <img src={image} alt='girl' onClick={() => handleOpenDialog(allImages)} />
                                 </div>
                             </div>
 
                             <ul className={styles.sci}>
                                 <li>
-                                    <p className={styles.ladyText}>{t(el.name)}</p>
+                                    <p className={styles.ladyText}>{t(name)}</p>
                                 </li>
                             </ul>
                         </div>
@@ -61,23 +61,25 @@ const Ladies = () => {
                     modules={[EffectCards]}
                     className="mySwiper"
                 >
-                    {AllModelsArray.map((el) => (
-                        <SwiperSlide key={el.id}>
-                            <div className={styles.card}>
-                                <div className={styles.content}>
-                                    <div className={styles.imgBx}>
-                                        <img src={el.image} alt='girl' onClick={() => handleOpenDialog(el.allImages)} />
+                    {AllModelsArray.map(({ id, image, allImages, name }) => {
+                        return (
+                            <SwiperSlide key={id}>
+                                <div className={styles.card}>
+                                    <div className={styles.content}>
+                                        <div className={styles.imgBx}>
+                                            <img src={image} alt='girl' onClick={() => handleOpenDialog(allImages)} />
+                                        </div>
                                     </div>
-                                </div>
 
-                                <ul className={styles.sci}>
-                                    <li>
-                                        <p className={styles.ladyText}>{el.name}</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </SwiperSlide>
-                    ))}
+                                    <ul className={styles.sci}>
+                                        <li>
+                                            <p className={styles.ladyText}>{t(name)}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </SwiperSlide>
+                        )
+                    })}
 
                 </Swiper>
             </div>

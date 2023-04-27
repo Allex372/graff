@@ -18,9 +18,10 @@
 .listWrapper li {
     cursor: pointer;
     list-style: none;
-    color: azure;
+    color: white;
     font-size: 20px;
     font-family: 'Playfair Display', serif;
+    background-color: black;
 }
 
 .listWrapper li:hover {

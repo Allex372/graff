@@ -31,9 +31,8 @@
 }
 
 .logoWrapper {
-    height: 300px;
-    max-width: 300px;
     margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .logoWrapper img {
@@ -101,14 +100,17 @@
     align-items: center;
 }
 
-.contactsInfo a {
+.contactsInfo a,
+.contactsInfoMobile a {
     display: block;
     text-decoration: none;
     color: #FDB931;
     font-size: 20px;
+    background: black;
 }
 
-.contactsInfo a i {
+.contactsInfo a i,
+.contactsInfoMobile a i {
     padding-right: 8px;
 }
 
@@ -135,8 +137,7 @@
 
 @media screen and (max-width: 768px) {
     .contactsInfo {
-        display: flex;
-        flex-direction: column;
+        margin-top: 475px;
     }
 
     .languages {
@@ -147,8 +148,17 @@
         padding-top: 8px;
     }
 
-    .contactWrapper {
+    .contactsInfo span {
         display: none;
+    }
+
+    .contactsInfoMobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contactsInfoMobile a:not(:first-child) {
+        padding-top: 8px;
     }
 
     .imageWrapper {
@@ -160,12 +170,15 @@
     }
 
     .logoWrapper {
-        width: 100%;
-        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
     }
 
     .menuIcon {
         top: 20px;
+        z-index: 2;
         position: absolute;
         right: 20px;
         display: block;
@@ -187,5 +200,23 @@
 
     .headerWrapper {
         display: none;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .contactsInfo {
+        margin-top: 348px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .contactsInfo {
+        margin-top: 250px;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .contactsInfo {
+        margin-top: 240px;
     }
 }

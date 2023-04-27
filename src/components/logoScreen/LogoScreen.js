@@ -5,7 +5,7 @@ import { useSideMenuOpen } from "../../context/sideMenuContext";
 import { useLanguage } from '../../context/languageContext';
 import NavigationItems from "../NavigationItems/NavigationItems";
 import GradientLine from "../GradientLine/GradientLine";
-import logo from '../../images/logo.png';
+import logo from '../../images/logo.jpg';
 import menuIcon from '../../images/menu-icon.png';
 import closeIcon from '../../images/close-icon.png';
 // 0986374614
@@ -37,7 +37,7 @@ const LogoScreen = () => {
             <div className={styles.languages}>
                 <span
                     className={language === 'ua' && `${styles.active}`}
-                    onClick={() => setEN('ua')}
+                    onClick={() => setUA('ua')}
                 >
                     UA
                 </span>
@@ -65,22 +65,22 @@ const LogoScreen = () => {
                     <div className={styles.contactsInfo}>
                         <a href="tel:+380986374614" target='_blank' rel="noreferrer">
                             <i class="fas fa-phone fa-lg"></i>
-                            +380986374614
+                            <span>+380986374614</span>
                         </a>
 
                         <a href="tg://resolve?domain=telegram_username" target='_blank' rel="noreferrer">
                             <i class="fab fa-telegram fa-lg"></i>
-                            Telegram
+                            <span>Telegram</span>
                         </a>
 
                         <a href="https://wa.me/1234567890" target='_blank' rel="noreferrer">
                             <i class="fab fa-whatsapp fa-lg"></i>
-                            WhatsApp
+                            <span>WhatsApp</span>
                         </a>
 
                         <a href="viber://pa?chatURI=viber_username" target='_blank' rel="noreferrer">
                             <i class="fab fa-viber fa-lg"></i>
-                            Viber
+                            <span>Viber</span>
                         </a>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ const LogoScreen = () => {
                     <div className={styles.mobileHeaderWrapper}>
                         <NavigationItems />
                         <div className={styles.contactsMobileWrapper}>
-                            <div className={styles.contactsInfo}>
+                            <div className={styles.contactsInfoMobile}>
                                 <a href="tel:+1234567890">
                                     <i class="fas fa-phone"></i>
                                     +1 (234) 567-890
