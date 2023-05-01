@@ -10,7 +10,7 @@ const AboutUs = () => {
 
     return (
         <div id="about" className={styles.wrapper}>
-            <p className={styles.title}>{t('aboutUs')}</p>
+            {/* <p className={styles.title}>{t('aboutUs')}</p> */}
             <div className={styles.infoWrapper}>
                 <div className={styles.infoImgWrapper}>
                     <img src={img} alt="night" />
