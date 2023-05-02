@@ -31,7 +31,7 @@ const Services = ({ services }) => {
                         <table cellpadding="0" cellspacing="0" border="0">
                             <tbody>
                                 <tr>
-                                    <td>Імператорський</td>
+                                    <td className={styles.imperial}>{t('Imperial')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -49,7 +49,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Королівський</td>
+                                    <td>{t('Royal')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -67,7 +67,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Спокуса</td>
+                                    <td>{t('Temptation')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -85,7 +85,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Фаберже</td>
+                                    <td>{t('Fabergé')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -103,7 +103,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Таємне бажання</td>
+                                    <td>{t('Secret-desire')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -121,7 +121,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Аромамасаж</td>
+                                    <td>{t('Aroma-massage')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -139,7 +139,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Класичний</td>
+                                    <td>{t('Сlassic')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -157,7 +157,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Масаж для пари</td>
+                                    <td>{t('Сouples-massage')}</td>
                                     <td>
                                         <p>90min</p>
                                     </td>
@@ -169,7 +169,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Pink cream show</td>
+                                    <td>{t('Pink-cream-show')}</td>
                                     <td>
                                         <p>90min</p>
                                     </td>
@@ -181,7 +181,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Spa relax</td>
+                                    <td>{t('SpaRelax')}</td>
                                     <td>
                                         <p>120min</p>
                                         <p>240min</p>
@@ -196,7 +196,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Вечеря з графинею</td>
+                                    <td>{t('Dinner-with-the-Countess')}</td>
                                     <td>
                                         <p>180min</p>
                                     </td>
@@ -208,7 +208,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Масаж з адміном</td>
+                                    <td>{t('Massage-with-admin')}</td>
                                     <td>
                                         <p>60min</p>
                                     </td>
@@ -218,7 +218,7 @@ const Services = ({ services }) => {
                                     <td><p>-</p></td>
                                 </tr>
                                 <tr>
-                                    <td>Ніч насолоди</td>
+                                    <td>{t('Night-of-pleasure')}</td>
                                     <td>
                                         <p>10hours</p>
                                     </td>

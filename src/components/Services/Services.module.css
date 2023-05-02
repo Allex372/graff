@@ -45,12 +45,14 @@ table {
 }
 
 th {
-    padding: 20px 15px;
+    padding: 20px 0px;
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
-    color: #fff;
+    color: black;
     text-transform: uppercase;
+    font-family: 'Playfair Display', ;
+    font-style: italic;
 }
 
 td {
@@ -62,6 +64,13 @@ td {
     color: #fff;
     background-color: black;
     border-bottom: solid 1px #FDB931;
+    font-family: 'Playfair Display', sans-serif;
+    font-style: italic;
+}
+
+.imperial {
+    word-wrap: break-word;
+    padding: 5px;
 }
 
 td p:not(:first-child) {
