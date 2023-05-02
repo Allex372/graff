@@ -79,7 +79,7 @@ td p:not(:first-child) {
 
 @media screen and (max-width: 768px) {
     th {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     td {
