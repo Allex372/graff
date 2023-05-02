@@ -20,8 +20,8 @@ const Services = ({ services }) => {
                                 <tr>
                                     <th></th>
                                     <th>Час</th>
-                                    <th>1 масажистка</th>
-                                    <th>2 масажистки</th>
+                                    <th>1 дівчина</th>
+                                    <th>2 дівчини</th>
                                     {/* <th>Change %</th> */}
                                 </tr>
                             </thead>
@@ -49,7 +49,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Royal')}</td>
+                                    <td className={styles.imperial}>{t('Royal')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -67,7 +67,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Temptation')}</td>
+                                    <td className={styles.imperial}>{t('Temptation')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -85,7 +85,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Fabergé')}</td>
+                                    <td className={styles.imperial}>{t('Fabergé')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -103,7 +103,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Secret-desire')}</td>
+                                    <td className={styles.imperial}>{t('Secret-desire')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -121,7 +121,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Aroma-massage')}</td>
+                                    <td className={styles.imperial}>{t('Aroma-massage')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -139,7 +139,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Сlassic')}</td>
+                                    <td className={styles.imperial}>{t('Сlassic')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
@@ -157,7 +157,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Сouples-massage')}</td>
+                                    <td className={styles.imperial}>{t('Сouples-massage')}</td>
                                     <td>
                                         <p>90min</p>
                                     </td>
@@ -169,7 +169,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Pink-cream-show')}</td>
+                                    <td className={styles.imperial}>{t('Pink-cream-show')}</td>
                                     <td>
                                         <p>90min</p>
                                     </td>
@@ -181,7 +181,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('SpaRelax')}</td>
+                                    <td className={styles.imperial}>{t('SpaRelax')}</td>
                                     <td>
                                         <p>120min</p>
                                         <p>240min</p>
@@ -196,7 +196,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Dinner-with-the-Countess')}</td>
+                                    <td className={styles.imperial}>{t('Dinner-with-the-Countess')}</td>
                                     <td>
                                         <p>180min</p>
                                     </td>
@@ -208,7 +208,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Massage-with-admin')}</td>
+                                    <td className={styles.imperial}>{t('Massage-with-admin')}</td>
                                     <td>
                                         <p>60min</p>
                                     </td>
@@ -218,7 +218,7 @@ const Services = ({ services }) => {
                                     <td><p>-</p></td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Night-of-pleasure')}</td>
+                                    <td className={styles.imperial}>{t('Night-of-pleasure')}</td>
                                     <td>
                                         <p>10hours</p>
                                     </td>
