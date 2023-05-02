@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "gatsby";
 
 import { useSideMenuOpen } from "../../context/sideMenuContext";
 import { useLanguage } from '../../context/languageContext';
@@ -16,6 +17,8 @@ const LogoScreen = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const { isMenuClose, setIsMenuClose } = useSideMenuOpen();
+
+    const address = 'Саксаганського 5, Львів';
 
     useEffect(() => {
         setIsOpen(false);
@@ -82,6 +85,11 @@ const LogoScreen = () => {
                             <i class="fab fa-viber fa-lg"></i>
                             <span>Viber</span>
                         </a>
+
+                        <Link to={`https://www.google.com/maps/place/${address}`} target="_blank">
+                            <i class="fas fa-street-view fa-lg"></i>
+                            <span>Саксаганського 5</span>
+                        </Link>
                     </div>
                 </div>
             </div>
