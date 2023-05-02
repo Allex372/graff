@@ -20,8 +20,8 @@ const Services = ({ services }) => {
                                 <tr>
                                     <th></th>
                                     <th>Час</th>
-                                    <th>1 масажистка</th>
-                                    <th>2 масажистки</th>
+                                    <th>1 дівчина</th>
+                                    <th>2 дівчини</th>
                                     {/* <th>Change %</th> */}
                                 </tr>
                             </thead>
@@ -49,7 +49,7 @@ const Services = ({ services }) => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>{t('Royal')}</td>
+                                    <td className={styles.imperial}>{t('Royal')}</td>
                                     <td>
                                         <p>60min</p>
                                         <p>90min</p>
