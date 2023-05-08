@@ -34,13 +34,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `services`,
-        path: `${__dirname}/src/services`,
-      },
-    },
-    {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.NODE_ENV ? 'https://whispering-shore-87525.herokuapp.com' : `http://localhost:1337`,

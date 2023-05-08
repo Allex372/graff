@@ -1,5 +1,4 @@
 import * as React from "react"
-import { graphql } from 'gatsby';
 import '../../18n';
 
 import LanguageProvider from '../context/languageContext';
@@ -65,23 +64,3 @@ const IndexPage = () => {
 export const Head = () => <Seo title="Graff" />
 
 export default IndexPage
-
-// export const query = graphql`
-//   query AllServices{
-//     allMarkdownRemark {
-//       nodes {
-//         frontmatter {
-//           category
-//           title
-//           url
-//           image {
-//             childImageSharp {
-//               gatsbyImageData
-//             }
-//           }
-//         }
-//         id
-//       }
-//     }
-//   }
-// `
