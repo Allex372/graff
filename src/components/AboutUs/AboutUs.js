@@ -1,23 +1,67 @@
 import * as React from "react"
+import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { useLanguage } from '../../context/languageContext';
-import img from '../../images/night.jpg'
+// import img from '../../images/night.jpg'
 
 import * as styles from './About_us.module.css';
 
 const AboutUs = () => {
-    const { t } = useLanguage();
+    const data = useStaticQuery(graphql`
+        query AboutQuery {
+            allStrapiAbout {
+                edges {
+                    node {
+                        title
+                        text {
+                            data {
+                                text
+                            }
+                        }
+                        localizations {
+                            data {
+                                attributes {
+                                    text
+                                }
+                            }
+                        }
+                        image {
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+  `)
+
+    const { text, localizations, image } = data.allStrapiAbout.edges[0].node;
+
+    const { language } = useLanguage();
+
+    const img = getImage(image[0]?.localFile);
 
     return (
         <div id="about" className={styles.wrapper}>
-            {/* <p className={styles.title}>{t('aboutUs')}</p> */}
             <div className={styles.infoWrapper}>
                 <div className={styles.infoImgWrapper}>
-                    <img src={img} alt="night" />
+                    <GatsbyImage
+                        image={img}
+                        alt='img'
+                        loading="lazy"
+                        className={styles.image}
+                    />
                 </div>
                 <div className={styles.textWrapper}>
                     <p className={styles.descriptionTitle}>«Graff»</p>
-                    <p className={styles.description}>{t('welcomeText')}</p>
+                    {localizations.data.map((loc, index) => (
+                        <p key={index} className={styles.description}>{language === 'en' ? loc.attributes.text : text?.data?.text}</p>
+                    ))}
+
                 </div>
             </div>
         </div>
