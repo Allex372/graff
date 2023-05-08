@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 import * as styles from './ModelsDialog.module.css'
 
-const ModelsDialog = ({ isOpenDialog, handleClose, imagesArray }) => {
+const ModelsDialog = ({ isOpenDialog, handleClose, imagesArray, isModels }) => {
     return (
         <Dialog onClose={handleClose} open={isOpenDialog}
             PaperProps={{
@@ -20,7 +20,7 @@ const ModelsDialog = ({ isOpenDialog, handleClose, imagesArray }) => {
                 },
             }}>
             <div className={styles.container}>
-                <SwiperCarousel array={imagesArray} />
+                <SwiperCarousel array={imagesArray} isModels={isModels} />
             </div>
         </Dialog>
     )

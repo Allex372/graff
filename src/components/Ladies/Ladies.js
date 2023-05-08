@@ -2,6 +2,8 @@ import * as React from "react"
 import { useState } from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 // Import Swiper styles
 import "swiper/css";
@@ -12,11 +14,38 @@ import { EffectCards } from "swiper";
 
 import { useLanguage } from '../../context/languageContext';
 import ModelsDialog from "../ModelsDialog/ModelsDialog";
-import { AllModelsArray } from "../../consts/allModelsArray";
+// import { AllModelsArray } from "../../consts/allModelsArray";
 import * as styles from './ladies.module.css';
 
 const Ladies = () => {
-    const { t } = useLanguage();
+    const data = useStaticQuery(graphql`
+        query LadiesQuery {
+            allStrapiModel {
+                edges {
+                    node {
+                        id
+                        name
+                        localizations {
+                            data {
+                                attributes {
+                                    name
+                                }
+                            }
+                        }
+                        image {
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+      `)
+
+    const { t, language } = useLanguage();
     const [openDialog, setOpenDialog] = useState(false);
     const [arr, setArr] = useState([]);
 
@@ -37,21 +66,36 @@ const Ladies = () => {
             <p className={styles.title}>{t('ladies')}</p>
             <div className={styles.flexWrapper}>
                 <div className={styles.cardWrapper}>
-                    {AllModelsArray.map(({ id, image, allImages, name }) => (
-                        <div className={styles.card} key={id}>
-                            <div className={styles.content}>
-                                <div className={styles.imgBx}>
-                                    <img src={image} alt='girl' onClick={() => handleOpenDialog(allImages)} />
+                    {data.allStrapiModel.edges.map((node) => {
+                        const { id, name, image, localizations } = node.node;
+                        const img = getImage(image[0].localFile);
+                        return (
+                            <div className={styles.card} key={id}>
+                                <div className={styles.content}>
+                                    <div className={styles.imgBx} onClick={() => handleOpenDialog(image)}>
+                                        <GatsbyImage
+                                            image={img}
+                                            alt='name'
+                                            loading="lazy"
+                                            className={styles.image}
+                                        />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <ul className={styles.sci}>
-                                <li>
-                                    <p className={styles.ladyText}>{t(name)}</p>
-                                </li>
-                            </ul>
-                        </div>
-                    ))}
+                                <ul className={styles.sci}>
+                                    <li>
+                                        {localizations.data.map((loc, index) => {
+                                            return (
+                                                <p className={styles.ladyText} key={index}>
+                                                    {language === 'en' ? loc.attributes.name : name}
+                                                </p>
+                                            )
+                                        })}
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
             <div className={styles.mobileSlides}>
@@ -61,19 +105,32 @@ const Ladies = () => {
                     modules={[EffectCards]}
                     className="mySwiper"
                 >
-                    {AllModelsArray.map(({ id, image, allImages, name }) => {
+                    {data.allStrapiModel.edges.map((node) => {
+                        const { id, name, image, localizations } = node.node;
+                        const img = getImage(image[0].localFile);
                         return (
                             <SwiperSlide key={id}>
                                 <div className={styles.card}>
                                     <div className={styles.content}>
-                                        <div className={styles.imgBx}>
-                                            <img src={image} alt='girl' onClick={() => handleOpenDialog(allImages)} />
+                                        <div className={styles.imgBx} onClick={() => handleOpenDialog(image)}>
+                                            <GatsbyImage
+                                                image={img}
+                                                alt='name'
+                                                loading="lazy"
+                                                className={styles.image}
+                                            />
                                         </div>
                                     </div>
 
                                     <ul className={styles.sci}>
                                         <li>
-                                            <p className={styles.ladyText}>{t(name)}</p>
+                                            {localizations.data.map((loc, index) => {
+                                                return (
+                                                    <p className={styles.ladyText} key={index}>
+                                                        {language === 'en' ? loc.attributes.name : name}
+                                                    </p>
+                                                )
+                                            })}
                                         </li>
                                     </ul>
                                 </div>
@@ -83,7 +140,7 @@ const Ladies = () => {
 
                 </Swiper>
             </div>
-            <ModelsDialog isOpenDialog={openDialog} handleClose={() => handleCloseDialog()} imagesArray={arr.length >= 1 && arr} />
+            <ModelsDialog isModels={true} isOpenDialog={openDialog} handleClose={() => handleCloseDialog()} imagesArray={arr.length >= 1 && arr} />
         </div>
     )
 }

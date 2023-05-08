@@ -9,9 +9,9 @@ import arrowLeft from '../images/arrow-left.png';
 import * as styles from './single-service.module.css';
 
 const SingleService = ({ data }) => {
-  const { t } = useLanguage();
-  const { title, text, image } = data?.markdownRemark?.frontmatter;
-  const img = getImage(image);
+  const { language } = useLanguage();
+  const { title, text, image, localizations } = data?.strapiService;
+  const img = getImage(image.localFile);
 
   return (
     <div className={styles.bg}>
@@ -26,14 +26,17 @@ const SingleService = ({ data }) => {
           className={styles.image}
         />
         <div className={styles.imageWrapper}>
-          {/* <img
-              src={img}
-              alt={title}
-              className={styles.image}
-            /> */}
         </div>
-        <p className={styles.title}>{t(title)}</p>
-        <p className={styles.description}>{t(text)}</p>
+        {localizations.data.map((loc, index) => {
+          return (
+            <React.Fragment key={index}>
+              <p className={styles.title}>
+                {language === 'en' ? loc.attributes.title : title}
+              </p>
+              <p className={styles.description}>{language === 'en' ? loc.attributes.text : text.data.text}</p>
+            </React.Fragment>
+          )
+        })}
       </div>
     </div>
   )
@@ -49,24 +52,31 @@ export default SingleServiceWithContext;
 
 export const query = graphql`
   query ServiceQuery($url: String) {
-    markdownRemark(frontmatter: {url: {eq: $url}}) {
-      html
-      frontmatter {
-        title
-        url
-        text
-        image {
+    strapiService(url: { eq: $url }) {
+      id
+      title
+      url
+      category
+      image {
+        localFile {
           childImageSharp {
-            gatsbyImageData(
-              width: 350
-            )
+            gatsbyImageData(width: 350)
           }
+        }
+      }
+      localizations {
+                data {
+                  attributes {
+                    title
+                    text
+                  }
+                }
+              }
+      text {
+        data {
+          text
         }
       }
     }
   }
 `;
-
-
-//placeholder: BLURRED
-//formats: AUTO

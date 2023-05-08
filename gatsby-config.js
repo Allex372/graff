@@ -7,6 +7,11 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     // title: `massage`,
@@ -19,6 +24,8 @@ module.exports = {
     `gatsby-plugin-anchor-links`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,10 +34,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-strapi",
       options: {
-        name: `services`,
-        path: `${__dirname}/src/services`,
+        apiURL: process.env.NODE_ENV ? 'https://whispering-shore-87525.herokuapp.com' : `http://localhost:1337`,
+        accessToken: process.env.STRAPI_TOKEN,
+        // collectionTypes: ["about", "user", "model", "service", "price", "interier", "rule"],
+        collectionTypes: ["about", "model", "service", "price", "interier", "rule"],
+        singleTypes: [],
+        downloadImages: true,
       },
     },
     {
@@ -39,8 +50,6 @@ module.exports = {
         offset: -100
       }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

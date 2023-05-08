@@ -12,7 +12,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import img from '../../images/models/girl.webp';
+// import img from '../../images/models/girl.webp';
 import * as styles from './Swiper.module.css';
 
 const inlineStyles = {
@@ -21,8 +21,8 @@ const inlineStyles = {
     }
 }
 
-const SwiperCarousel = ({ array, isService }) => {
-    const { t } = useLanguage();
+const SwiperCarousel = ({ array, isService, isInterier, isModels }) => {
+    const { t, language } = useLanguage();
     const ServiceSwiperComponent = () => {
         const { changeSlide } = useSliderIndex();
         if (typeof window === "undefined") return null;
@@ -41,7 +41,6 @@ const SwiperCarousel = ({ array, isService }) => {
                     depth: 100,
                     modifier: 2.5,
                 }}
-                // pagination={{ el: '.swiper-pagination', clickable: true }}
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -51,18 +50,13 @@ const SwiperCarousel = ({ array, isService }) => {
                 className={styles.swiperContainer}
             >
                 {
-                    (isService && array && array[0].frontmatter) && array.map(el => {
-                        const { category, title, url, image } = el?.frontmatter;
-                        const img = getImage(image);
+                    array.nodes.map((el) => {
+                        const { category, title, url, image, localizations } = el;
+                        const img = getImage(image.localFile);
                         return (
                             <SwiperSlide className={styles.swiperSlide} key={el.id}>
                                 <div className={styles.cardWrapper}>
                                     <div className={styles.imageWrapper}>
-                                        {/* <img
-                                            src={img}
-                                            alt={title}
-                                            className={styles.image}
-                                        /> */}
                                         <GatsbyImage
                                             image={img}
                                             alt={title}
@@ -70,7 +64,13 @@ const SwiperCarousel = ({ array, isService }) => {
                                             className={styles.image}
                                         />
                                     </div>
-                                    <p className={styles.title}>{t(title)}</p>
+                                    {localizations.data.map((loc, index) => {
+                                        return (
+                                            <p className={styles.title} key={index}>
+                                                {language === 'en' ? loc.attributes.title : title}
+                                            </p>
+                                        )
+                                    })}
                                     <Link to={`/${category}/${url}`} className={styles.link}>{t('readMore')} -&gt;</Link>
                                 </div>
                             </SwiperSlide>
@@ -82,7 +82,6 @@ const SwiperCarousel = ({ array, isService }) => {
                     </div>
                     <div className="swiper-button-next" style={inlineStyles.btnStyles}>
                     </div>
-                    {/* <div className="swiper-pagination"></div> */}
                 </div>
 
             </Swiper>
@@ -110,15 +109,23 @@ const SwiperCarousel = ({ array, isService }) => {
                 modules={[EffectCoverflow, Pagination, Navigation]}
                 className={styles.swiperContainer}
             >
-                {(!isService && array) &&
-                    array.map((image) => (
-                        <SwiperSlide key={array.indexOf(image)} className={styles.swiperSlide}>
-                            <img src={image} alt="slide_image" />
-                        </SwiperSlide>
-                    ))
+                {
+                    array.map((image) => {
+                        const img = getImage(image.localFile)
+                        return (
 
+                            <SwiperSlide key={array.indexOf(image)} className={styles.swiperSlide}>
+                                <GatsbyImage
+                                    image={img}
+                                    alt='slide_image'
+                                    loading="lazy"
+                                    className={styles.image}
+                                />
+                            </SwiperSlide>
+                        )
+
+                    })
                 }
-
                 <div className={styles.sliderControler}>
                     <div className='swiper-button-prev' style={inlineStyles.btnStyles}>
                     </div>
@@ -150,19 +157,19 @@ const SwiperCarousel = ({ array, isService }) => {
                 modules={[EffectCoverflow, Pagination, Navigation]}
                 className={styles.swiperContainer}
             >
-                {/* {(!isService && !array) && (
-                    <> */}
-                <SwiperSlide className={styles.swiperSlide}>
-                    <img src={img} alt="slide_image" />
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                    <img src={img} alt="slide_image" />
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiperSlide}>
-                    <img src={img} alt="slide_image" />
-                </SwiperSlide>
-                {/* </>
-                )} */}
+                {array.map((image) => {
+                    const img = getImage(image.localFile)
+                    return (
+                        <SwiperSlide className={styles.swiperSlide}>
+                            <GatsbyImage
+                                image={img}
+                                alt='galery'
+                                loading="lazy"
+                                className={styles.image}
+                            />
+                        </SwiperSlide>
+                    )
+                })}
 
                 <div className={styles.sliderControler}>
                     <div className='swiper-button-prev' style={inlineStyles.btnStyles}>
@@ -176,9 +183,9 @@ const SwiperCarousel = ({ array, isService }) => {
 
     return (
         <>
-            {(!isService && array) && <LadiesSwiperComponent array={array} />}
-            {(!isService && !array) && <InterierSwiperComponent />}
-            {(isService && array && array[0].frontmatter) && <ServiceSwiperComponent />}
+            {(isModels && array) && <LadiesSwiperComponent />}
+            {(isInterier && array) && <InterierSwiperComponent />}
+            {(isService && array) && <ServiceSwiperComponent />}
         </>
     )
 }
