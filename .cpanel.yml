@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/graffmassage@gmail.com/public_html/
+    - /bin/cp -R * $DEPLOYPATH
