@@ -7,15 +7,25 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    // title: `massage`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-anchor-links`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,8 +33,23 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.NODE_ENV ? 'https://whispering-shore-87525.herokuapp.com' : `http://localhost:1337`,
+        accessToken: process.env.STRAPI_TOKEN,
+        // collectionTypes: ["about", "user", "model", "service", "price", "interier", "rule"],
+        collectionTypes: ["about", "model", "service", "price", "interier", "rule"],
+        singleTypes: [],
+        downloadImages: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -40,4 +65,5 @@ module.exports = {
       },
     },
   ],
+  pathPrefix: "/graff",
 }

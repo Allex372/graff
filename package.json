@@ -5,14 +5,29 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@mui/material": "^5.12.0",
     "gatsby": "^5.8.1",
+    "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-image": "^3.8.0",
     "gatsby-plugin-manifest": "^5.8.0",
-    "gatsby-plugin-sharp": "^5.8.1",
+    "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-sharp": "^5.9.0",
     "gatsby-source-filesystem": "^5.8.0",
-    "gatsby-transformer-sharp": "^5.8.0",
+    "gatsby-source-strapi": "^3.2.0",
+    "gatsby-transformer-remark": "^6.8.0",
+    "gatsby-transformer-sharp": "^5.9.0",
+    "gh-pages": "^5.0.0",
+    "i18next": "^22.4.15",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.2",
+    "save-dev": "^0.0.1-security",
+    "swiper": "^9.2.0"
   },
   "devDependencies": {
     "prettier": "^2.8.7"
@@ -22,6 +37,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",

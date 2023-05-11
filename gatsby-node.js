@@ -1,18 +1,23 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
- */
+const path = require('path');
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
+exports.createPages = async ({ actions, graphql }) => {
+  const { data } = await graphql(`
+    query Services {
+      allStrapiService {
+        nodes {
+          url
+          category
+        }
+      }
+    }
+  `)
+
+  data?.allStrapiService?.nodes?.forEach(node => {
+    const { url, category } = node;
+    actions.createPage({
+      path: `/${category}/${url}`,
+      component: path.resolve('./src/templates/single-service.js'),
+      context: { url }
+    })
+  });
 }
