@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import '../../18n';
 
 import LanguageProvider from '../context/languageContext';
@@ -15,7 +15,7 @@ import Rules from "../components/Rules/Rules";
 import Seo from "../components/seo";
 import SliderContextProvide from "../context/sliderConext";
 import SideMenuContextProvide from "../context/sideMenuContext";
-import Scroll from "../components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 import * as styles from "../components/index.module.css"
 
@@ -56,7 +56,7 @@ const IndexPage = () => {
 
       </LanguageProvider>
 
-      <Scroll showBelow={250} />
+      <ScrollToTop showBelow={250} />
     </div>
   )
 }

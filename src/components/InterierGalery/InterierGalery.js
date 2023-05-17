@@ -1,4 +1,5 @@
-import * as React from "react"
+import React from "react";
+import { useMemo } from 'react';
 
 import SwiperCarousel from "../Swiper/Swiper";
 import { useStaticQuery, graphql } from "gatsby";
@@ -27,8 +28,9 @@ const InterierGalery = () => {
         }
       `)
 
+    const cahcedData = useMemo(() => data, [data]);
 
-    const { image } = data.strapiInterier;
+    const { image } = cahcedData?.strapiInterier;
 
     const { t } = useLanguage();
     return (
