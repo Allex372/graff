@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "gatsby";
 
@@ -6,10 +6,9 @@ import { useSideMenuOpen } from "../../context/sideMenuContext";
 import { useLanguage } from '../../context/languageContext';
 import NavigationItems from "../NavigationItems/NavigationItems";
 import GradientLine from "../GradientLine/GradientLine";
-import logo from '../../images/logo.jpg';
+import logo from '../../images/logo.jpeg';
 import menuIcon from '../../images/menu-icon.png';
 import closeIcon from '../../images/close-icon.png';
-// 0986374614
 import * as styles from './logo.module.css';
 
 const LogoScreen = () => {
@@ -138,7 +137,7 @@ const LogoScreen = () => {
                             <span>/</span>
                             <span
                                 className={language === 'en' && `${styles.active}`}
-                                onClick={() => setEN('en')}
+                                onClick={() => setUA('en')}
                             >
                                 EN
                             </span>

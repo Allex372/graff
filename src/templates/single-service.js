@@ -27,13 +27,13 @@ const SingleService = ({ data }) => {
         />
         <div className={styles.imageWrapper}>
         </div>
-        {localizations.data.map((loc, index) => {
+        {localizations?.data?.map((loc, index) => {
           return (
             <React.Fragment key={index}>
               <p className={styles.title}>
-                {language === 'en' ? loc.attributes.title : title}
+                {language === 'en' ? loc?.attributes?.title : title}
               </p>
-              <p className={styles.description}>{language === 'en' ? loc.attributes.text : text.data.text}</p>
+              <p className={styles.description}>{language === 'en' ? loc?.attributes?.text : text?.data?.text}</p>
             </React.Fragment>
           )
         })}

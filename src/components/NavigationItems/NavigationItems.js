@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 import { useLanguage } from '../../context/languageContext';

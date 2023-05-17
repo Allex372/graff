@@ -42,6 +42,7 @@ module.exports = {
         collectionTypes: ["about", "model", "service", "price", "interier", "rule"],
         singleTypes: [],
         downloadImages: true,
+        typePrefix: "Strapi",
       },
     },
     {

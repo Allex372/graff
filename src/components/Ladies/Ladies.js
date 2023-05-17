@@ -1,5 +1,5 @@
-import * as React from "react"
-import { useState } from 'react';
+import React from "react"
+import { useState, useMemo } from 'react';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useStaticQuery, graphql } from "gatsby";
@@ -14,7 +14,6 @@ import { EffectCards } from "swiper";
 
 import { useLanguage } from '../../context/languageContext';
 import ModelsDialog from "../ModelsDialog/ModelsDialog";
-// import { AllModelsArray } from "../../consts/allModelsArray";
 import * as styles from './ladies.module.css';
 
 const Ladies = () => {
@@ -45,6 +44,8 @@ const Ladies = () => {
         }
       `)
 
+    const chachedData = useMemo(() => data, [data]);
+
     const { t, language } = useLanguage();
     const [openDialog, setOpenDialog] = useState(false);
     const [arr, setArr] = useState([]);
@@ -66,9 +67,9 @@ const Ladies = () => {
             <p className={styles.title}>{t('ladies')}</p>
             <div className={styles.flexWrapper}>
                 <div className={styles.cardWrapper}>
-                    {data.allStrapiModel.edges.map((node) => {
-                        const { id, name, image, localizations } = node.node;
-                        const img = getImage(image[0].localFile);
+                    {chachedData?.allStrapiModel?.edges?.map((node) => {
+                        const { id, name, image, localizations } = node?.node;
+                        const img = getImage(image[0]?.localFile);
                         return (
                             <div className={styles.card} key={id}>
                                 <div className={styles.content}>
@@ -105,9 +106,9 @@ const Ladies = () => {
                     modules={[EffectCards]}
                     className="mySwiper"
                 >
-                    {data.allStrapiModel.edges.map((node) => {
-                        const { id, name, image, localizations } = node.node;
-                        const img = getImage(image[0].localFile);
+                    {chachedData?.allStrapiModel?.edges?.map((node) => {
+                        const { id, name, image, localizations } = node?.node;
+                        const img = getImage(image[0]?.localFile);
                         return (
                             <SwiperSlide key={id}>
                                 <div className={styles.card}>

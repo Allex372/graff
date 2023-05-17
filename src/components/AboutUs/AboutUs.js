@@ -1,9 +1,8 @@
-import * as React from "react"
+import React, { useMemo } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { useLanguage } from '../../context/languageContext';
-// import img from '../../images/night.jpg'
 
 import * as styles from './About_us.module.css';
 
@@ -39,7 +38,9 @@ const AboutUs = () => {
         }
   `)
 
-    const { text, localizations, image } = data.allStrapiAbout.edges[0].node;
+    const cahcedData = useMemo(() => data, [data]);
+
+    const { text, localizations, image } = cahcedData?.allStrapiAbout?.edges[0]?.node;
 
     const { language } = useLanguage();
 
@@ -58,7 +59,7 @@ const AboutUs = () => {
                 </div>
                 <div className={styles.textWrapper}>
                     <p className={styles.descriptionTitle}>«Graff»</p>
-                    {localizations.data.map((loc, index) => (
+                    {localizations?.data?.map((loc, index) => (
                         <p key={index} className={styles.description}>{language === 'en' ? loc.attributes.text : text?.data?.text}</p>
                     ))}
 
