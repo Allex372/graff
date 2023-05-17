@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useMemo } from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 
 import { useLanguage } from '../../context/languageContext';
@@ -69,7 +69,9 @@ const Rules = () => {
             }
         }
       `)
-    const { description, localizations, rule1, rule2, rule3, rule4, rule5, rule6, rule7, } = data.allStrapiRule.edges[0].node;
+
+    const cachedData = useMemo(() => data, [data]);
+    const { description, localizations, rule1, rule2, rule3, rule4, rule5, rule6, rule7, } = cachedData?.allStrapiRule?.edges[0]?.node;
     const { t, language } = useLanguage();
     return (
         <div className={styles.wrapper} id='rules'>

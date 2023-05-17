@@ -1,41 +1,41 @@
-import * as React from "react";
+import React from "react";
+import { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-
 import { useLanguage } from "../../../context/languageContext";
-
 import * as styles from './PriceTable.module.css';
 
-
 const PricingTable = () => {
-    const price = useStaticQuery(graphql`
-        query ServicePriceQuery {
-            allStrapiPrice {
-                edges {
-                node {
-                    title
-                    time1
-                    time2
-                    time3
-                    girl1time1price
-                    girl1time2price
-                    girl1time3price
-                    girl2time1price
-                    girl2time2price
-                    girl3time3price
-                    localizations {
-                    data {
-                        attributes {
-                        title
-                        }
-                    }
-                    }
-                }
-                }
-            }
-        }
-      `);
+    const { t, language } = useLanguage();
 
-    const { language, t } = useLanguage();
+    const data = useStaticQuery(graphql`
+    query ServicePriceQuery {
+      allStrapiPrice {
+        edges {
+          node {
+            title
+            time1
+            time2
+            time3
+            girl1time1price
+            girl1time2price
+            girl1time3price
+            girl2time1price
+            girl2time2price
+            girl3time3price
+            localizations {
+              data {
+                attributes {
+                  title
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+    const cachedPrices = useMemo(() => data?.allStrapiPrice?.edges, [data?.allStrapiPrice?.edges]);
 
     return (
         <>
@@ -56,7 +56,7 @@ const PricingTable = () => {
                 <div className={styles.tblContent}>
                     <table cellPadding="0" cellSpacing="0" border="0">
                         <tbody>
-                            {price.allStrapiPrice.edges.map((el) => {
+                            {cachedPrices?.map((edge, index) => {
                                 const {
                                     girl1time1price,
                                     girl1time2price,
@@ -69,17 +69,15 @@ const PricingTable = () => {
                                     time2,
                                     time3,
                                     title: titleUa
-                                } = el.node;
+                                } = edge?.node;
 
                                 return (
-                                    <tr key={price.allStrapiPrice.edges.indexOf(el)}>
-                                        {localizations.data.map((loc, index) => {
-                                            return (
-                                                <td className={styles.imperial} key={index}>
-                                                    {language === 'en' ? loc.attributes.title : titleUa}
-                                                </td>
-                                            )
-                                        })}
+                                    <tr key={index}>
+                                        {localizations?.data?.map((loc, index) => (
+                                            <td className={styles.imperial} key={index}>
+                                                {language === 'en' ? loc.attributes.title : titleUa}
+                                            </td>
+                                        ))}
                                         <td>
                                             <p>{time1}</p>
                                             <p>{time2}</p>
@@ -103,7 +101,7 @@ const PricingTable = () => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default PricingTable;

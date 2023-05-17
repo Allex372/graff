@@ -1,16 +1,10 @@
-import * as React from "react";
+import React from "react";
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-// import img from '../../../images/night.jpg'
-
 import * as styles from './ServicesCard.module.css';
 
 const ServicesCard = ({ category, title, url, image }) => {
-
     const img = getImage(image);
-
-    // console.log(image);
-    //childImageSharp.gatsbyImageData.images.fallback.src
 
     return (
         <div className={styles.cardWrapper}>
@@ -21,16 +15,11 @@ const ServicesCard = ({ category, title, url, image }) => {
                     loading="lazy"
                     className={styles.image}
                 />
-                {/* <img
-                    src={img}
-                    alt={title}
-                    className={styles.image}
-                /> */}
             </div>
             <p className={styles.title}>{title}</p>
             <Link to={`/${category}/${url}`} className={styles.link}>Читати більше -&gt;</Link>
         </div>
-    )
+    );
 }
 
 export default ServicesCard;
